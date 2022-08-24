@@ -1,0 +1,7 @@
+{
+  "name": "jublia-floorplan-wrapper",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
