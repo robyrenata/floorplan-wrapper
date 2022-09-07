@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FloorplanListComponent } from './floorplan-list/floorplan-list.component';
-import { FloorplanDetailComponent } from './floorplan-detail/floorplan-detail.component';
 import { JubliaFloorplanLibModule } from 'jublia-floorplan-lib';
 import { IonicModule } from '@ionic/angular';
 
@@ -13,13 +12,14 @@ export const routes: Routes = [
     component: FloorplanListComponent,
   },
   {
-    path: 'detail/:id',
-    component: FloorplanDetailComponent,
+    path: 'detail/:origin/:id',
+    loadChildren: () =>
+      import('jublia-floorplan-lib').then((m) => m.JubliaFloorplanLibModule),
   },
 ];
 
 @NgModule({
-  declarations: [FloorplanListComponent, FloorplanDetailComponent],
+  declarations: [FloorplanListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
